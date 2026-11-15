@@ -1,0 +1,28 @@
+name: Deploy VTC Reims to Netlify
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout website
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Publish static site
+        env:
+          NETLIFY_MCP_PROXY_PATH: ${{ secrets.NETLIFY_MCP_PROXY_PATH }}
+        run: |
+          test -f index.html
+          test -n "$NETLIFY_MCP_PROXY_PATH"
+          npx -y @netlify/mcp@latest \
+            --site-id 21b832ac-3cea-4486-834b-6f055e29106c \
+            --proxy-path "$NETLIFY_MCP_PROXY_PATH"
