@@ -34,18 +34,20 @@
   .route{display:flex;align-items:baseline;gap:8px;padding:6px 0;font-size:13px}
   .route + .route{border-top:1px solid #ffffff13}
   .route b{width:18px;flex-shrink:0;color:var(--gold);font-weight:600;text-align:center}
-  .cta-row{display:flex;justify-content:center;gap:10px;margin-top:15px}
-  .cta{text-decoration:none;display:inline-flex;justify-content:center;align-items:center;border-radius:10px;min-height:44px;padding:10px 15px;white-space:nowrap;font-size:13px;font-weight:750;transition:transform .15s}
+  .cta-row{display:flex;justify-content:center;gap:8px;margin-top:15px}
+  .cta{text-decoration:none;display:inline-flex;flex:1;min-width:0;justify-content:center;align-items:center;gap:5px;border-radius:10px;min-height:44px;padding:10px 8px;white-space:nowrap;font-size:13px;font-weight:750;transition:transform .15s}
   .cta:hover{transform:translateY(-2px)}
   .cta:focus-visible,a:focus-visible{outline:3px solid white;outline-offset:3px}
   .call{background:var(--gold);color:#19130e}
   .sms{background:#22242a;border:1px solid #76654a;color:white}
+  .whatsapp{background:#176c49;border:1px solid #36a675;color:#fff}
+  .whatsapp:hover{background:#1a8357}
   .number{font-size:14px;letter-spacing:.04em;font-variant-numeric:tabular-nums;color:var(--gold2);margin:9px 0 0}
   .note{font-size:11px;color:#adaaaa;max-width:430px;margin:11px auto 0}
   footer{font-size:11px;margin-top:10px;color:#b5b1b0}
   footer a{color:var(--gold2);text-underline-offset:3px}
   @media(max-height:740px){body{padding:9px 12px}.emblem{height:76px;width:min(230px,68vw)}.brand{font-size:clamp(22px,6vw,32px);margin-bottom:6px}h1{font-size:clamp(22px,5.5vw,28px);margin-bottom:6px}.intro{margin-bottom:10px}.routes{padding:10px 14px}.routes h2{margin-bottom:4px}.route{padding:4px 0}.cta-row{margin-top:10px}.note{margin-top:7px}footer{margin-top:7px}}
-  @media(max-width:355px){.cta{font-size:12px;padding:10px 9px}.route{font-size:12px}.routes{padding:10px 11px}}
+  @media(max-width:355px){.cta-row{gap:6px}.cta{font-size:12px;padding:10px 5px}.route{font-size:12px}.routes{padding:10px 11px}}
   @media(prefers-reduced-motion:reduce){.cta{transition:none}}
   </style>
 </head>
@@ -73,8 +75,9 @@
     <div class="route"><b aria-hidden="true">↗</b><span>Reims, Bezannes, Tinqueux &amp; Épernay</span></div>
   </section>
   <div class="cta-row" aria-label="Contacter votre chauffeur">
-    <a class="cta call" href="tel:+33749510710">☎ Appeler</a>
-    <a class="cta sms" data-sms-link href="sms:+33749510710?body=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20un%20VTC%20avec%20%C3%89l%C3%A9gance%20VTC%20Remois.%0AD%C3%A9part%20%3A%20%0ADestination%20%3A%20%0ADate%20et%20heure%20%3A%20">✉ Envoyer un SMS</a>
+    <a class="cta call" href="tel:+33749510710" aria-label="Appeler le chauffeur">☎ Appeler</a>
+    <a class="cta sms" data-sms-link href="sms:+33749510710?body=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20un%20VTC%20avec%20%C3%89l%C3%A9gance%20VTC%20Remois.%0AD%C3%A9part%20%3A%20%0ADestination%20%3A%20%0ADate%20et%20heure%20%3A%20" aria-label="Envoyer un SMS au chauffeur">✉ SMS</a>
+    <a class="cta whatsapp" href="https://wa.me/33749510710?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20un%20trajet%20avec%20%C3%89l%C3%A9gance%20VTC%20Remois.%0AD%C3%A9part%20%3A%20%0ADestination%20%3A%20%0ADate%20et%20heure%20%3A%20" target="_blank" rel="noopener noreferrer" aria-label="Envoyer un message WhatsApp au chauffeur">◉ WhatsApp</a>
   </div>
   <p class="number">07 49 51 07 10</p>
   <p class="note">Uniquement sur réservation préalable. Tarif et disponibilité communiqués avant toute confirmation.</p>
