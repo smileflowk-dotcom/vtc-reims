@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://vtc-reims-chauffeur.netlify.app/sitemap.xml
