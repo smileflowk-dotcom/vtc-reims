@@ -1,45 +1,47 @@
-# Mini-site VTC Reims — version de prépublication
+# VTC Reims — landing page compacte
 
-Site statique **une seule page** pour un chauffeur VTC indépendant intervenant à Reims et dans la Marne.
+Site statique monopage pour un chauffeur privé VTC à Reims. **Version de préparation, non publiée sur un hébergement web.**
 
-## Ce qui est prêt
+## Design
 
-- Design bleu nuit et or, responsive, sans dépendance externe ni compilation.
-- Appel direct au **07 49 51 07 10** (`tel:+33749510710`).
-- Présentation des trajets Reims Centre, Champagne-Ardenne TGV, CDG, Orly et Épernay.
-- Cartes de trajet qui préremplissent le formulaire.
-- Formulaire qui **prépare un SMS** sur le téléphone du visiteur. Le visiteur doit ensuite appuyer sur *Envoyer* dans son application SMS.
-- Copie du récapitulatif et lien SMS de secours.
-- Menu mobile, liens d'ancrage, FAQ, mentions et confidentialité provisoires.
-- Aucun paiement, aucun backend, aucun formulaire envoyé ou stocké par le site.
+- Référence visuelle : page VTC CDG du dépôt `smileflowk-dotcom/vtc-reservation`.
+- Nouvelle présentation sombre, or discret, centrée et mobile-first.
+- **3 boutons d'action principaux au total** : appel dans l'en-tête de la page, préparation SMS dans le formulaire, appel discret fixe sur mobile.
+- Boutons compacts (bouton principal d'environ 45 px de haut).
+- Sans faux avis, fausse disponibilité immédiate, prix inventé, publicité ou scripts tiers.
 
-## Vérifications réalisées
+## Données du chauffeur
 
-- 46 liens internes/de contact recensés ; aucun lien d'ancrage cassé.
-- Tests Chromium sur écran mobile 390 px et ordinateur 1440 px : pas de débordement horizontal ni erreur JavaScript.
-- Menu mobile s'ouvre/se referme ; six trajets préremplissent le formulaire ; lien SMS créé avec le numéro correct.
-- **Non testé** : réception réelle d'un SMS par le chauffeur et compatibilité sur les téléphones réels.
+- Numéro : **07 49 51 07 10** / `+33749510710`.
+- Zones évoquées : Reims, Bezannes, Tinqueux, Cormontreuil, Épernay.
+- Transferts à organiser : gares de Reims et Champagne-Ardenne TGV, CDG, Orly, déplacements professionnels.
+- Nom commercial de l'entreprise **non communiqué** ; « VTC Reims » est pour l'instant un descriptif éditorial, pas une dénomination commerciale déclarée.
 
-## Avant toute mise en ligne commerciale
+## Contact / formulaire
 
-1. Confirmer le **nom commercial réellement utilisé**, la dénomination légale, le SIREN, les coordonnées et les informations réglementaires à faire figurer dans les mentions légales.
-2. Confirmer les prestations et l'éventuelle activation de WhatsApp ; le formulaire utilise pour l'instant **SMS**, plus universel.
-3. Compléter et valider les **mentions légales** et la **politique de confidentialité**.
-4. Retirer la balise `noindex,nofollow` uniquement quand le site sera juridiquement et commercialement prêt.
-5. Ajouter l'URL canonique et mettre à jour les données structurées avec l'identité commerciale confirmée.
-6. Vérifier appel/SMS sur un vrai téléphone et demander au chauffeur de confirmer un trajet test.
-7. Remplacer, si souhaité, l'illustration graphique par des photographies authentiques du véhicule.
+- Appel direct via liens `tel:`.
+- Formulaire sans backend : collecte trajet, date, heure, passagers, bagages, nom, téléphone, précisions.
+- Vérification navigateur des champs obligatoires et de la date.
+- À validation, tentative d'ouverture d'un SMS prérempli vers `+33749510710`. Le client doit appuyer lui-même sur **Envoyer**.
+- **Aucune réservation automatique et aucun envoi serveur** ; toute course doit être confirmée par le chauffeur.
+- Les liens SMS ne sont pas universellement pris en charge sur ordinateur et restent à tester sur un vrai téléphone.
 
-## Hébergement
+## Tests effectués
 
-Le code se trouve dans `index.html` : aucun build n'est nécessaire.
+- HTML analysé : **3 boutons principaux**, bon numéro ; aucun ancien numéro parisien.
+- Chromium Playwright : captures mobile 390 px / desktop 1440 px, aucun débordement horizontal, aucune erreur JavaScript initiale.
+- Bouton appel dans le hero d'environ 45 px, contre 22 px de texte + 20 px de padding de chaque côté dans la référence.
+- Champs du formulaire : validation des champs obligatoires testée ; données d'exemple acceptées.
+- **À tester** : ouverture réelle de l'application SMS sur Android/iOS et réception du message par le chauffeur.
 
-> ⚠️ **GitHub Pages : restriction d'usage.** La documentation GitHub Pages indique que l'hébergement gratuit ne doit pas être utilisé pour un site d'entreprise principalement destiné à faciliter des transactions commerciales. Ce dépôt sert donc de **source GitHub**, pas de déploiement GitHub Pages du site VTC de réservation.
->
-> Documentation officielle : https://docs.github.com/fr/pages/getting-started-with-github-pages/github-pages-limits
+## Publication ultérieure
 
-Pour publier une fois les informations réglementaires confirmées, connecter ce dépôt à un hébergeur de sites statiques autorisant les sites commerciaux (par exemple Netlify, sous réserve de ses conditions en vigueur). Aucun build : publier le dossier racine du dépôt.
+À compléter avant toute mise en ligne commerciale :
 
-## Propriété et sécurité
+1. Confirmer le nom commercial réel, les mentions légales, le SIREN, l'identité juridique et les éventuelles informations réglementaires VTC nécessaires.
+2. Vérifier prestations et horaires réels.
+3. Tester l'envoi SMS et la prise de contact sur téléphone.
+4. Retirer `noindex,nofollow` uniquement une fois le site prêt, avec une URL définitive et une politique de confidentialité complète.
+5. Publier sur un hébergement adapté aux activités commerciales. **GitHub Pages n'a pas été activé** ; ses conditions de service comportent des restrictions sur les sites à vocation commerciale transactionnelle.
 
-Le dépôt appartient à `smileflowk-dotcom`. Le nom personnel du chauffeur n'apparaît pas dans le contenu commercial. La fiche Google Business Profile est un projet distinct ; aucune fiche n'a été créée ni modifiée.
+Le dépôt GitHub sert de source de vérité. Le site n'exige aucun build, framework ni service externe ; un hébergeur compatible peut servir directement le fichier `index.html`.
